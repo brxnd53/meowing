@@ -4,9 +4,6 @@ import math
 #st.header("meow")
 #st.text("mlup")
 
-panko = st.toggle("Click me for surprise :3")
-if panko == True:
-    st.image('https://catsoftheweb.com/wp-content/uploads/2024/09/9764c601-f18c-458e-930c-7e522fc9c2dc.jpg.webp')
 st.text("Calculator made by BrandboBoys (AKA Brand)")
 st.text("Report bugs to .brxnd. on Discord and message for any questions or suggestions!")
 st.subheader("Realm name:")
