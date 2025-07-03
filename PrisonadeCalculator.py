@@ -5,7 +5,7 @@ import math
 #st.text("mlup")
 
 st.text("Calculator made by BrandboBoys (AKA Brand)")
-st.text("Report bugs to .brxnd. on Discord and message for any questions or suggestions!")
+st.text("Report bugs to .brxnd. on Discord or message for any questions or suggestions!")
 st.subheader("Realm name:")
 realm = st.radio("", ["Valley", "Peak", "Colosseum", "Tidal", "Drowned"])
 st.text("")
