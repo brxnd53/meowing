@@ -285,7 +285,8 @@ elif mix != ("Valley Mix"):
     total1stackleft = total1-(total1stack*64)
     total2stack = math.floor(total2/64)
     total2stackleft = total1-(total2stack*64)
-    st.title(f"You need {total1} T3 {block1n} ({total1stack} stacks and {total1stackleft} blocks) and {total2} T3 {block2n} ({total2stack} stacks and {total2stackleft} blocks)")
+    st.title(f"You need {total1} T3 {block1n} ({total1stack} stacks and {total1stackleft} blocks)")
+    st.title(f"You need {total2} T3 {block2n} ({total2stack} stacks and {total2stackleft} blocks)")
 elif mix != ("Peak Mix"):  
     block1 = float(block1)
     block2 = float(block2)
@@ -295,7 +296,8 @@ elif mix != ("Peak Mix"):
     total1stackleft = total1-(total1stack*64)
     total2stack = math.floor(total2/64)
     total2stackleft = total1-(total2stack*64)
-    st.title(f"You need {total1} T3 {block1n} ({total1stack} stacks and {total1stackleft} blocks) and {total2} T3 {block2n} ({total2stack} stacks and {total2stackleft} blocks)")
+    st.title(f"You need {total1} T3 {block1n} ({total1stack} stacks and {total1stackleft} blocks)")
+    st.title(f"You need {total2} T3 {block2n} ({total2stack} stacks and {total2stackleft} blocks)")
 elif mix != ("Colosseum Mix"):  
     block1 = float(block1)
     block2 = float(block2)
@@ -305,7 +307,8 @@ elif mix != ("Colosseum Mix"):
     total1stackleft = total1-(total1stack*64)
     total2stack = math.floor(total2/64)
     total2stackleft = total1-(total2stack*64)
-    st.title(f"You need {total1} T3 {block1n} ({total1stack} stacks and {total1stackleft} blocks) and {total2} T3 {block2n} ({total2stack} stacks and {total2stackleft} blocks)")
+    st.title(f"You need {total1} T3 {block1n} ({total1stack} stacks and {total1stackleft} blocks)")
+    st.title(f"You need {total2} T3 {block2n} ({total2stack} stacks and {total2stackleft} blocks)")
 elif mix != ("Tidal Mix"):  
     block1 = float(block1)
     block2 = float(block2)
@@ -315,7 +318,8 @@ elif mix != ("Tidal Mix"):
     total1stackleft = total1-(total1stack*64)
     total2stack = math.floor(total2/64)
     total2stackleft = total1-(total2stack*64)
-    st.title(f"You need {total1} T3 {block1n} ({total1stack} stacks and {total1stackleft} blocks) and {total2} T3 {block2n} ({total2stack} stacks and {total2stackleft} blocks)")
+    st.title(f"You need {total1} T3 {block1n} ({total1stack} stacks and {total1stackleft} blocks)")
+    st.title(f"You need {total2} T3 {block2n} ({total2stack} stacks and {total2stackleft} blocks)")
 elif mix != ("Drowned Mix"):  
     block1 = float(block1)
     block2 = float(block2)
@@ -325,6 +329,7 @@ elif mix != ("Drowned Mix"):
     total1stackleft = total1-(total1stack*64)
     total2stack = math.floor(total2/64)
     total2stackleft = total1-(total2stack*64)
-    st.title(f"You need {total1} T3 {block1n} ({total1stack} stacks and {total1stackleft} blocks) and {total2} T3 {block2n} ({total2stack} stacks and {total2stackleft} blocks)")
+    st.title(f"You need {total1} T3 {block1n} ({total1stack} stacks and {total1stackleft} blocks)")
+    st.title(f"You need {total2} T3 {block2n} ({total2stack} stacks and {total2stackleft} blocks)")
 else:
     pass
