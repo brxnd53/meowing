@@ -1,335 +1,286 @@
 import streamlit as st
 import math
-#st.title("hi")
-#st.header("meow")
-#st.text("mlup")
+
 
 st.text("Calculator made by BrandboBoys (AKA Brand)")
-st.text("Report bugs to .brxnd. on Discord or message for any questions or suggestions!")
-st.subheader("Realm name:")
-realm = st.radio("", ["Valley", "Peak", "Colosseum", "Tidal", "Drowned"])
-st.text("")
-st.text("")
+st.text("Report bugs to .brxnd. on Discord and message for any questions or suggestions!")
 
-st.subheader("Which block:")
-if realm == "Valley":
-    mix = st.radio("", ["Sandstone - Red Sandstone Mix", "Red Sandstone - Copper Mix", "Copper - Coal Mix", "Valley Mix"])
-    
-if realm == "Peak":
-    mix = st.radio("", ["Lapis - Amethyst Mix", "Amethyst - Diamond Mix", "Diamond - Emerald Mix", "Peak Mix"])
-    
-if realm == "Colosseum":
-    mix = st.radio("", ["Iron - Redstone Mix", "Redstone - Calcium Mix", "Calcium - Gold Mix", "Colosseum Mix"])
-    
-if realm == "Tidal":
-    mix = st.radio("", ["Tube Coral - Fire Coral Mix", "Fire Coral - Horn Coral Mix", "Horn Coral - Bubble Coral Mix", "Tidal Mix"])
-    
-if realm == "Drowned":
-    mix = st.radio("", ["Seaweed - Sea Floor Mix", "Sea Floor - Foreign Machinery Mix", "Foreign Machinery - Volcanic Rock Mix", "Drowned Mix"])
+col1, col2 = st.columns(2)
+
+
+with col1:
+    st.subheader("Realm name:")
+    realm = st.radio("", ["Valley", "Peak", "Colosseum", "Tidal", "Drowned"])
+    st.text("")
+
+    one1, one2, one3, one4, one5 = "Sandstone", "Red Sandstone", "Copper", "Coal", "Valley"
+    two1, two2, two3, two4, two5 = "Lapis", "Amethyst", "Diamond", "Emerald", "Peak"
+    three1, three2, three3, three4, three5 = "Iron", "Redstone", "Calcium", "Gold", "Colosseum"
+    four1, four2, four3, four4, four5 = "Tube Coral", "Fire Coral", "Horn Coral", "Bubble Coral", "Tidal"
+    five1, five2, five3, five4, five5 = "Seaweed", "Sea Floor", "Foreign Machinery", "Volcanic Rock", "Drowned"
+with col2:
+    st.subheader("Which block:")
+    if realm == "Valley":
+        mix = st.radio("", [f"{one1} - {one2} Mix", f"{one2} - {one3} Mix", f"{one3} - {one4} Mix", f"{one5} Mix"])
+        
+    if realm == "Peak":
+        mix = st.radio("", [f"{two1} - {two2} Mix", f"{two2} - {two3} Mix", f"{two3} - {two4} Mix", f"{two5} Mix"])
+        
+    if realm == "Colosseum":
+        mix = st.radio("", [f"{three1} - {three2} Mix", f"{three2} - {three3} Mix", f"{three3} - {three4} Mix", f"{three5} Mix"])
+        
+    if realm == "Tidal":
+        mix = st.radio("", [f"{four1} - {four2} Mix", f"{four2} - {four3} Mix", f"{four3} - {four4} Mix", f"{four5} Mix"])
+        
+    if realm == "Drowned":
+        mix = st.radio("", [f"{five1} - {five2} Mix", f"{five2} - {five3} Mix", f"{five3} - {five4} Mix", f"{five5} Mix"])
+
     
     
 st.text("")
-blocks = st.text_input("How many blocks:", value="0")
+blocks = st.text_input("How many blocks:", value="0", max_chars=5, placeholder="0-99999, only numbers!")
 blocks = float(blocks)
 
-if mix == "Sandstone - Red Sandstone Mix":
-    block1 = 1 
-    block2 = 1
-    block1n = "Sandstone"
-    block2n = "Red Sandstone"
-    
-if mix == "Red Sandstone - Copper Mix":
-    block1 = 4
-    block2 = 4
-    block1n = "Red Sandstone"
-    block2n = "Copper"
-    
-if mix == "Copper - Coal Mix":
-    block1 = 8
-    block2 = 8
-    block1n = "Copper"
-    block2n = "Coal"
-    
-if mix == "Valley Mix":
-    mixblock1 = 3*4
-    mixblockmid1 = 3*4
-    mixblockmid2 = 3*8
-    mixblock4 = 3*8
-    mixblock1n = "Red Sandstone"
-    mixblock2n = "Copper"
-    mixblock4n = "Coal"
-    
+submixtoggle = st.toggle("Toggle sub-mixes for realm mixes")
+
+if mix == f"{one1} - {one2} Mix":
+    block1 = float(1) 
+    block2 = float(1)
+    block1n = f"{one1}"
+    block2n = f"{one2}"
+if mix == f"{one2} - {one3} Mix":
+    block1 = float(4)
+    block2 = float(4)
+    block1n = f"{one2}"
+    block2n = f"{one3}" 
+if mix == f"{one3} - {one4} Mix": 
+    block1 = float(8)
+    block2 = float(8)
+    block1n = f"{one3}"
+    block2n = f"{one4}"    
+if mix == f"{one5} Mix":
+    mixblock1 = float(3*4)
+    mixblockmid1 = float(3*4)
+    mixblockmid2 = float(3*8)
+    mixblock4 = float(3*8)
+    mixblockpart1, mixblockpart2 = float(3), float(3)
+    mixblock1n = f"{one2}"
+    mixblock2n = f"{one3}"
+    mixblock4n = f"{one4}"
     
 
-if mix == "Lapis - Amethyst Mix":
-    block1 = 2
-    block2 = 3
-    block1n = "Lapis"
-    block2n = "Amethyst"
-    
-if mix == "Amethyst - Diamond Mix":
-    block1 = 6
-    block2 = 5
-    block1n = "Amethyst"
-    block2n = "Diamond"
-    
-if mix == "Diamond - Emerald Mix":
-    block1 = 10
-    block2 = 10
-    block1n = "Diamond"
-    block2n = "Emerald"
-    
-if mix == "Peak Mix":
-    mixblock1 = 5*6
-    mixblockmid1 = 5*5
-    mixblockmid2 = 5*10
-    mixblock4 = 5*10
-    mixblock1n = "Amethyst"
-    mixblock2n = "Diamond"
-    mixblock4n = "Emerald"
+if mix == f"{two1} - {two2} Mix":
+    block1 = float(2)
+    block2 = float(3)
+    block1n = f"{two1}"
+    block2n = f"{two2}"
+if mix == f"{two2} - {two3} Mix":
+    block1 = float(6)
+    block2 = float(5)
+    block1n = f"{two2}"
+    block2n = f"{two3}"
+if mix == f"{two3} - {two4} Mix":
+    block1 = float(10)
+    block2 = float(10)
+    block1n = f"{two3}"
+    block2n = f"{two4}"
+if mix == f"{two5} Mix":
+    mixblock1 = float(5*6)
+    mixblockmid1 = float(5*5)
+    mixblockmid2 = float(5*10)
+    mixblock4 = float(5*10)
+    mixblockpart1, mixblockpart2 = float(5), float(5)
+    mixblock1n = f"{two2}"
+    mixblock2n = f"{two3}"
+    mixblock4n = f"{two4}"
     
     
+if mix == f"{three1} - {three2} Mix":
+    block1 = float(6)
+    block2 = float(6)
+    block1n = f"{three1}"
+    block2n = f"{three2}"
+if mix == f"{three2} - {three3} Mix":
+    block1 = float(8)
+    block2 = float(7)
+    block1n = f"{three2}"
+    block2n = f"{three3}"       
+if mix == f"{three3} - {three4} Mix":
+    block1 = float(13)
+    block2 = float(13)
+    block1n = f"{three3}"
+    block2n = f"{three4}"        
+if mix == f"{three5} Mix":
+    mixblock1 = float(7*8)
+    mixblockmid1 = float(7*7)
+    mixblockmid2 = float(7*13)
+    mixblock4 = float(7*13)
+    mixblockpart1, mixblockpart2 = float(7), float(7)
+    mixblock1n = f"{three2}"
+    mixblock2n = f"{three3}"
+    mixblock4n = f"{three4}"
     
-if mix == "Iron - Redstone Mix":
-    block1 = 6
-    block2 = 6
-    block1n = "Iron"
-    block2n = "Redstone"
+            
+if mix == f"{four1} - {four2} Mix":
+    block1 = float(7)
+    block2 = float(7)
+    block1n = f"{four1}"
+    block2n = f"{four2}"       
+if mix == f"{four2} - {four3} Mix":
+    block1 = float(10)
+    block2 = float(8)
+    block1n = f"{four2}"
+    block2n = f"{four3}"       
+if mix == f"{four3} - {four4} Mix":
+    block1 = float(14)
+    block2 = float(14)
+    block1n = f"{four3}"
+    block2n = f"{four4}"        
+if mix == f"{four5} Mix":
+    mixblock1 = float(7*10)
+    mixblockmid1 = float(7*8)
+    mixblockmid2 = float(7*14)
+    mixblock4 = float(7*14)
+    mixblockpart1, mixblockpart2 = float(7), float(7)
+    mixblock1n = f"{four2}"
+    mixblock2n = f"{four3}"
+    mixblock4n = f"{four4}"
     
-if mix == "Redstone - Calcium Mix":
-    block1 = 8
-    block2 = 7
-    block1n = "Redstone"
-    block2n = "Calcium"
+            
+if mix == f"{five1} - {five2} Mix":
+    block1 = float(9)
+    block2 = float(9) 
+    block1n = f"{five1}"
+    block2n = f"{five2}"        
+if mix == f"{five2} - {five3} Mix":
+    block1 = float(11)
+    block2 = float(11)
+    block1n = f"{five2}"
+    block2n = f"{five3}"        
+if mix == f"{five3} - {five4} Mix":
+    block1 = float(16)
+    block2 = float(12)
+    block1n = f"{five3}"
+    block2n = f"{five4}"        
+if mix == f"{five5} Mix":
+    mixblock1 = float(10*11)
+    mixblockmid1 = float(10*11)
+    mixblockmid2 = float(10*16)
+    mixblock4 = float(10*12)
+    mixblockpart1, mixblockpart2 = float(10), float(10)
+    mixblock1n = f"{five2}"
+    mixblock2n = f"{five3}"
+    mixblock4n = f"{five4}"
+ 
+ 
     
-if mix == "Calcium - Gold Mix":
-    block1 = 13
-    block2 = 13
-    block1n = "Calcium"
-    block2n = "Gold"
-    
-if mix == "Colosseum Mix":
-    mixblock1 = 7*8
-    mixblockmid1 = 7*7
-    mixblockmid2 = 7*13
-    mixblock4 = 7*13
-    mixblock1n = "Redstone"
-    mixblock2n = "Calcium"
-    mixblock4n = "Gold"
-    
-    
-    
-if mix == "Tube Coral - Fire Coral Mix":
-    block1 = 7
-    block2 = 7
-    block1n = "Tube Coral"
-    block2n = "Fire Coral"
-    
-if mix == "Fire Coral - Horn Coral Mix":
-    block1 = 10
-    block2 = 8
-    block1n = "Fire Coral"
-    block2n = "Horn Coral"
-    
-if mix == "Horn Coral - Bubble Coral Mix":
-    block1 = 14
-    block2 = 14
-    block1n = "Horn Coral"
-    block2n = "Bubble Coral"
-    
-if mix == "Tidal Mix":
-    mixblock1 = 7*10
-    mixblockmid1 = 7*8
-    mixblockmid2 = 7*14
-    mixblock4 = 7*14
-    mixblock1n = "Fire Coral"
-    mixblock2n = "Horn Coral"
-    mixblock4n = "Bubble Coral"
-    
-    
-    
-if mix == "Seaweed - Sea Floor Mix":
-    block1 = 9
-    block2 = 9 
-    block1n = "Seaweed"
-    block2n = "Sea Floor"
-    
-if mix == "Sea Floor - Foreign Machinery Mix":
-    block1 = 11
-    block2 = 11
-    block1n = "Sea Floor"
-    block2n = "Foreign Machinery"
-    
-if mix == "Foreign Machinery - Volcanic Rock Mix":
-    block1 = 16
-    block2 = 12
-    block1n = "Foreign Machinery"
-    block2n = "Volcanic Rock"
-    
-if mix == "Drowned Mix":
-    mixblock1 = 10*11
-    mixblockmid1 = 10*11
-    mixblockmid2 = 10*16
-    mixblock4 = 10*12
-    mixblock1n = "Sea Floor"
-    mixblock2n = "Foreign Machinery"
-    mixblock4n = "Volcanic Rock"
-
-    
-if mix == ("Valley Mix"):
-    mixblock1 = float(mixblock1)
-    mixblock2 = float(mixblockmid1)
-    mixblock3 = float(mixblockmid2)
-    mixblock4 = float(mixblock4)
-    mixtotal1 = round(mixblock1 * blocks)
-    mixtotalmid1 = round(mixblock2 * blocks)
-    mixtotalmid2 = round(mixblock3 * blocks)
-    mixtotal4 = round(mixblock4 * blocks)
+if mix == f"{one5} Mix":
+    mixtotal1, mixtotalmid1, mixtotalmid2, mixtotal4 = round(mixblock1 * blocks), round(mixblockmid1 * blocks), round(mixblockmid2 * blocks), round(mixblock4 * blocks)
     mixtotalmid = mixtotalmid1+mixtotalmid2
-    mixtotal1stack = math.floor(mixtotal1/64)
-    mixtotal1stackleft = mixtotal1-(mixtotal1stack*64)
-    mixtotalmidstack = math.floor(mixtotalmid/64)
-    mixtotalmidstackleft = mixtotalmid-(mixtotalmidstack*64)
-    mixtotal4stack = math.floor(mixtotal4/64)
-    mixtotal4stackleft = mixtotal4-(mixtotal4stack*64)
-    st.title(f"You need {mixtotal1} T3 {mixblock1n} ({mixtotal1stack} stacks and {mixtotal1stackleft} blocks)")
-    st.title(f"You need {mixtotalmid} T3 {mixblock2n} ({mixtotalmidstack} stacks and {mixtotalmidstackleft} blocks)")
-    st.title(f"You need {mixtotal4} T3 {mixblock4n} ({mixtotal4stack} stacks and {mixtotal4stackleft} blocks)")
-    pass
-elif mix == ("Peak Mix"):
-    mixblock1 = float(mixblock1)
-    mixblock2 = float(mixblockmid1)
-    mixblock3 = float(mixblockmid2)
-    mixblock4 = float(mixblock4)
-    mixtotal1 = round(mixblock1 * blocks)
-    mixtotalmid1 = round(mixblock2 * blocks)
-    mixtotalmid2 = round(mixblock3 * blocks)
-    mixtotal4 = round(mixblock4 * blocks)
+    mixtotal1stack, mixtotalmidstack, mixtotal4stack = math.floor(mixtotal1/64), math.floor(mixtotalmid/64), math.floor(mixtotal4/64)
+    mixtotal1stackleft, mixtotalmidstackleft, mixtotal4stackleft = mixtotal1-(mixtotal1stack*64), mixtotalmid-(mixtotalmidstack*64), mixtotal4-(mixtotal4stack*64)
+    mixpart1, mixpart2 = round(mixblockpart1 * blocks), round(mixblockpart2 * blocks)
+    mixpart1stack, mixpart2stack = math.floor(mixpart1/64), math.floor(mixpart2/64)
+    mixpart1stackleft, mixpart2stackleft = mixpart1-(mixpart1stack*64), mixpart2-(mixpart2stack*64)
+    if submixtoggle == True:
+        st.header(f"You need {mixpart1} {mixblock1n} - {mixblock2n} Mix ({mixpart1stack} and {mixpart1stackleft} blocks)")
+        st.header(f"You need {mixpart2} {mixblock2n} - {mixblock4n} Mix ({mixpart2stack} and {mixpart2stackleft} blocks)")
+    else:
+        st.header(f"You need {mixtotal1} T3 {mixblock1n} ({mixtotal1stack} stacks and {mixtotal1stackleft} blocks)")
+        st.header(f"You need {mixtotalmid} T3 {mixblock2n} ({mixtotalmidstack} stacks and {mixtotalmidstackleft} blocks)")
+        st.header(f"You need {mixtotal4} T3 {mixblock4n} ({mixtotal4stack} stacks and {mixtotal4stackleft} blocks)")
+        pass
+elif mix == f"{two5} Mix":
+    mixtotal1, mixtotalmid1, mixtotalmid2, mixtotal4 = round(mixblock1 * blocks), round(mixblockmid1 * blocks), round(mixblockmid2 * blocks), round(mixblock4 * blocks)
     mixtotalmid = mixtotalmid1+mixtotalmid2
-    mixtotal1stack = math.floor(mixtotal1/64)
-    mixtotal1stackleft = mixtotal1-(mixtotal1stack*64)
-    mixtotalmidstack = math.floor(mixtotalmid/64)
-    mixtotalmidstackleft = mixtotalmid-(mixtotalmidstack*64)
-    mixtotal4stack = math.floor(mixtotal4/64)
-    mixtotal4stackleft = mixtotal4-(mixtotal4stack*64)
-    st.title(f"You need {mixtotal1} T3 {mixblock1n} ({mixtotal1stack} stacks and {mixtotal1stackleft} blocks)")
-    st.title(f"You need {mixtotalmid} T3 {mixblock2n} ({mixtotalmidstack} stacks and {mixtotalmidstackleft} blocks)")
-    st.title(f"You need {mixtotal4} T3 {mixblock4n} ({mixtotal4stack} stacks and {mixtotal4stackleft} blocks)")
-    pass
-elif mix == ("Colosseum Mix"):
-    mixblock1 = float(mixblock1)
-    mixblock2 = float(mixblockmid1)
-    mixblock3 = float(mixblockmid2)
-    mixblock4 = float(mixblock4)
-    mixtotal1 = round(mixblock1 * blocks)
-    mixtotalmid1 = round(mixblock2 * blocks)
-    mixtotalmid2 = round(mixblock3 * blocks)
-    mixtotal4 = round(mixblock4 * blocks)
+    mixtotal1stack, mixtotalmidstack, mixtotal4stack = math.floor(mixtotal1/64), math.floor(mixtotalmid/64), math.floor(mixtotal4/64)
+    mixtotal1stackleft, mixtotalmidstackleft, mixtotal4stackleft = mixtotal1-(mixtotal1stack*64), mixtotalmid-(mixtotalmidstack*64), mixtotal4-(mixtotal4stack*64)
+    mixpart1, mixpart2 = round(mixblockpart1 * blocks), round(mixblockpart2 * blocks)
+    mixpart1stack, mixpart2stack = math.floor(mixpart1/64), math.floor(mixpart2/64)
+    mixpart1stackleft, mixpart2stackleft = mixpart1-(mixpart1stack*64), mixpart2-(mixpart2stack*64)
+    if submixtoggle == True:
+        st.header(f"You need {mixpart1} {mixblock1n} - {mixblock2n} Mix ({mixpart1stack} and {mixpart1stackleft} blocks)")
+        st.header(f"You need {mixpart2} {mixblock2n} - {mixblock4n} Mix ({mixpart2stack} and {mixpart2stackleft} blocks)")
+    else:
+        st.header(f"You need {mixtotal1} T3 {mixblock1n} ({mixtotal1stack} stacks and {mixtotal1stackleft} blocks)")
+        st.header(f"You need {mixtotalmid} T3 {mixblock2n} ({mixtotalmidstack} stacks and {mixtotalmidstackleft} blocks)")
+        st.header(f"You need {mixtotal4} T3 {mixblock4n} ({mixtotal4stack} stacks and {mixtotal4stackleft} blocks)")
+        pass
+elif mix == f"{three5} Mix":
+    mixtotal1, mixtotalmid1, mixtotalmid2, mixtotal4 = round(mixblock1 * blocks), round(mixblockmid1 * blocks), round(mixblockmid2 * blocks), round(mixblock4 * blocks)
     mixtotalmid = mixtotalmid1+mixtotalmid2
-    mixtotal1stack = math.floor(mixtotal1/64)
-    mixtotal1stackleft = mixtotal1-(mixtotal1stack*64)
-    mixtotalmidstack = math.floor(mixtotalmid/64)
-    mixtotalmidstackleft = mixtotalmid-(mixtotalmidstack*64)
-    mixtotal4stack = math.floor(mixtotal4/64)
-    mixtotal4stackleft = mixtotal4-(mixtotal4stack*64)
-    st.title(f"You need {mixtotal1} T3 {mixblock1n} ({mixtotal1stack} stacks and {mixtotal1stackleft} blocks)")
-    st.title(f"You need {mixtotalmid} T3 {mixblock2n} ({mixtotalmidstack} stacks and {mixtotalmidstackleft} blocks)")
-    st.title(f"You need {mixtotal4} T3 {mixblock4n} ({mixtotal4stack} stacks and {mixtotal4stackleft} blocks)")
-    pass
-elif mix == ("Tidal Mix"):
-    mixblock1 = float(mixblock1)
-    mixblock2 = float(mixblockmid1)
-    mixblock3 = float(mixblockmid2)
-    mixblock4 = float(mixblock4)
-    mixtotal1 = round(mixblock1 * blocks)
-    mixtotalmid1 = round(mixblock2 * blocks)
-    mixtotalmid2 = round(mixblock3 * blocks)
-    mixtotal4 = round(mixblock4 * blocks)
+    mixtotal1stack, mixtotalmidstack, mixtotal4stack = math.floor(mixtotal1/64), math.floor(mixtotalmid/64), math.floor(mixtotal4/64)
+    mixtotal1stackleft, mixtotalmidstackleft, mixtotal4stackleft = mixtotal1-(mixtotal1stack*64), mixtotalmid-(mixtotalmidstack*64), mixtotal4-(mixtotal4stack*64)
+    mixpart1, mixpart2 = round(mixblockpart1 * blocks), round(mixblockpart2 * blocks)
+    mixpart1stack, mixpart2stack = math.floor(mixpart1/64), math.floor(mixpart2/64)
+    mixpart1stackleft, mixpart2stackleft = mixpart1-(mixpart1stack*64), mixpart2-(mixpart2stack*64)
+    if submixtoggle == True:
+        st.header(f"You need {mixpart1} {mixblock1n} - {mixblock2n} Mix ({mixpart1stack} and {mixpart1stackleft} blocks)")
+        st.header(f"You need {mixpart2} {mixblock2n} - {mixblock4n} Mix ({mixpart2stack} and {mixpart2stackleft} blocks)")
+    else:
+        st.header(f"You need {mixtotal1} T3 {mixblock1n} ({mixtotal1stack} stacks and {mixtotal1stackleft} blocks)")
+        st.header(f"You need {mixtotalmid} T3 {mixblock2n} ({mixtotalmidstack} stacks and {mixtotalmidstackleft} blocks)")
+        st.header(f"You need {mixtotal4} T3 {mixblock4n} ({mixtotal4stack} stacks and {mixtotal4stackleft} blocks)")
+        pass
+elif mix == f"{four5} Mix":
+    mixtotal1, mixtotalmid1, mixtotalmid2, mixtotal4 = round(mixblock1 * blocks), round(mixblockmid1 * blocks), round(mixblockmid2 * blocks), round(mixblock4 * blocks)
     mixtotalmid = mixtotalmid1+mixtotalmid2
-    mixtotal1stack = math.floor(mixtotal1/64)
-    mixtotal1stackleft = mixtotal1-(mixtotal1stack*64)
-    mixtotalmidstack = math.floor(mixtotalmid/64)
-    mixtotalmidstackleft = mixtotalmid-(mixtotalmidstack*64)
-    mixtotal4stack = math.floor(mixtotal4/64)
-    mixtotal4stackleft = mixtotal4-(mixtotal4stack*64)
-    st.title(f"You need {mixtotal1} T3 {mixblock1n} ({mixtotal1stack} stacks and {mixtotal1stackleft} blocks)")
-    st.title(f"You need {mixtotalmid} T3 {mixblock2n} ({mixtotalmidstack} stacks and {mixtotalmidstackleft} blocks)")
-    st.title(f"You need {mixtotal4} T3 {mixblock4n} ({mixtotal4stack} stacks and {mixtotal4stackleft} blocks)")
-    pass
-elif mix == ("Drowned Mix"):
-    mixblock1 = float(mixblock1)
-    mixblock2 = float(mixblockmid1)
-    mixblock3 = float(mixblockmid2)
-    mixblock4 = float(mixblock4)
-    mixtotal1 = round(mixblock1 * blocks)
-    mixtotalmid1 = round(mixblock2 * blocks)
-    mixtotalmid2 = round(mixblock3 * blocks)
-    mixtotal4 = round(mixblock4 * blocks)
+    mixtotal1stack, mixtotalmidstack, mixtotal4stack = math.floor(mixtotal1/64), math.floor(mixtotalmid/64), math.floor(mixtotal4/64)
+    mixtotal1stackleft, mixtotalmidstackleft, mixtotal4stackleft = mixtotal1-(mixtotal1stack*64), mixtotalmid-(mixtotalmidstack*64), mixtotal4-(mixtotal4stack*64)
+    mixpart1, mixpart2 = round(mixblockpart1 * blocks), round(mixblockpart2 * blocks)
+    mixpart1stack, mixpart2stack = math.floor(mixpart1/64), math.floor(mixpart2/64)
+    mixpart1stackleft, mixpart2stackleft = mixpart1-(mixpart1stack*64), mixpart2-(mixpart2stack*64)
+    if submixtoggle == True:
+        st.header(f"You need {mixpart1} {mixblock1n} - {mixblock2n} Mix ({mixpart1stack} and {mixpart1stackleft} blocks)")
+        st.header(f"You need {mixpart2} {mixblock2n} - {mixblock4n} Mix ({mixpart2stack} and {mixpart2stackleft} blocks)")
+    else:
+        st.header(f"You need {mixtotal1} T3 {mixblock1n} ({mixtotal1stack} stacks and {mixtotal1stackleft} blocks)")
+        st.header(f"You need {mixtotalmid} T3 {mixblock2n} ({mixtotalmidstack} stacks and {mixtotalmidstackleft} blocks)")
+        st.header(f"You need {mixtotal4} T3 {mixblock4n} ({mixtotal4stack} stacks and {mixtotal4stackleft} blocks)")
+elif mix == f"{five5} Mix":
+    mixtotal1, mixtotalmid1, mixtotalmid2, mixtotal4 = round(mixblock1 * blocks), round(mixblockmid1 * blocks), round(mixblockmid2 * blocks), round(mixblock4 * blocks)
     mixtotalmid = mixtotalmid1+mixtotalmid2
-    mixtotal1stack = math.floor(mixtotal1/64)
-    mixtotal1stackleft = mixtotal1-(mixtotal1stack*64)
-    mixtotalmidstack = math.floor(mixtotalmid/64)
-    mixtotalmidstackleft = mixtotalmid-(mixtotalmidstack*64)
-    mixtotal4stack = math.floor(mixtotal4/64)
-    mixtotal4stackleft = mixtotal4-(mixtotal4stack*64)
-    st.title(f"You need {mixtotal1} T3 {mixblock1n} ({mixtotal1stack} stacks and {mixtotal1stackleft} blocks)")
-    st.title(f"You need {mixtotalmid} T3 {mixblock2n} ({mixtotalmidstack} stacks and {mixtotalmidstackleft} blocks)")
-    st.title(f"You need {mixtotal4} T3 {mixblock4n} ({mixtotal4stack} stacks and {mixtotal4stackleft} blocks)")
-    pass
-elif mix != ("Valley Mix"):  
-    block1 = float(block1)
-    block2 = float(block2)
-    total1 = round(block1 * blocks)
-    total2 = round(block2 * blocks)
-    total1stack = math.floor(total1/64)
-    total1stackleft = total1-(total1stack*64)
-    total2stack = math.floor(total2/64)
-    total2stackleft = total2-(total2stack*64)
-    st.title(f"You need {total1} T3 {block1n} ({total1stack} stacks and {total1stackleft} blocks)")
-    st.title(f"You need {total2} T3 {block2n} ({total2stack} stacks and {total2stackleft} blocks)")
-elif mix != ("Peak Mix"):  
-    block1 = float(block1)
-    block2 = float(block2)
-    total1 = round(block1 * blocks)
-    total2 = round(block2 * blocks)
-    total1stack = math.floor(total1/64)
-    total1stackleft = total1-(total1stack*64)
-    total2stack = math.floor(total2/64)
-    total2stackleft = total2-(total2stack*64)
-    st.title(f"You need {total1} T3 {block1n} ({total1stack} stacks and {total1stackleft} blocks)")
-    st.title(f"You need {total2} T3 {block2n} ({total2stack} stacks and {total2stackleft} blocks)")
-elif mix != ("Colosseum Mix"):  
-    block1 = float(block1)
-    block2 = float(block2)
-    total1 = round(block1 * blocks)
-    total2 = round(block2 * blocks)
-    total1stack = math.floor(total1/64)
-    total1stackleft = total1-(total1stack*64)
-    total2stack = math.floor(total2/64)
-    total2stackleft = total2-(total2stack*64)
-    st.title(f"You need {total1} T3 {block1n} ({total1stack} stacks and {total1stackleft} blocks)")
-    st.title(f"You need {total2} T3 {block2n} ({total2stack} stacks and {total2stackleft} blocks)")
-elif mix != ("Tidal Mix"):  
-    block1 = float(block1)
-    block2 = float(block2)
-    total1 = round(block1 * blocks)
-    total2 = round(block2 * blocks)
-    total1stack = math.floor(total1/64)
-    total1stackleft = total1-(total1stack*64)
-    total2stack = math.floor(total2/64)
-    total2stackleft = total2-(total2stack*64)
-    st.title(f"You need {total1} T3 {block1n} ({total1stack} stacks and {total1stackleft} blocks)")
-    st.title(f"You need {total2} T3 {block2n} ({total2stack} stacks and {total2stackleft} blocks)")
-elif mix != ("Drowned Mix"):  
-    block1 = float(block1)
-    block2 = float(block2)
-    total1 = round(block1 * blocks)
-    total2 = round(block2 * blocks)
-    total1stack = math.floor(total1/64)
-    total1stackleft = total1-(total1stack*64)
-    total2stack = math.floor(total2/64)
-    total2stackleft = total2-(total2stack*64)
-    st.title(f"You need {total1} T3 {block1n} ({total1stack} stacks and {total1stackleft} blocks)")
-    st.title(f"You need {total2} T3 {block2n} ({total2stack} stacks and {total2stackleft} blocks)")
+    mixtotal1stack, mixtotalmidstack, mixtotal4stack = math.floor(mixtotal1/64), math.floor(mixtotalmid/64), math.floor(mixtotal4/64)
+    mixtotal1stackleft, mixtotalmidstackleft, mixtotal4stackleft = mixtotal1-(mixtotal1stack*64), mixtotalmid-(mixtotalmidstack*64), mixtotal4-(mixtotal4stack*64)
+    mixpart1, mixpart2 = round(mixblockpart1 * blocks), round(mixblockpart2 * blocks)
+    mixpart1stack, mixpart2stack = math.floor(mixpart1/64), math.floor(mixpart2/64)
+    mixpart1stackleft, mixpart2stackleft = mixpart1-(mixpart1stack*64), mixpart2-(mixpart2stack*64)
+    if submixtoggle == True:
+        st.header(f"You need {mixpart1} {mixblock1n} - {mixblock2n} Mix ({mixpart1stack} and {mixpart1stackleft} blocks)")
+        st.header(f"You need {mixpart2} {mixblock2n} - {mixblock4n} Mix ({mixpart2stack} and {mixpart2stackleft} blocks)")
+    else:
+        st.header(f"You need {mixtotal1} T3 {mixblock1n} ({mixtotal1stack} stacks and {mixtotal1stackleft} blocks)")
+        st.header(f"You need {mixtotalmid} T3 {mixblock2n} ({mixtotalmidstack} stacks and {mixtotalmidstackleft} blocks)")
+        st.header(f"You need {mixtotal4} T3 {mixblock4n} ({mixtotal4stack} stacks and {mixtotal4stackleft} blocks)")
+elif mix != f"{one5} Mix":  
+    total1, total2 = round(block1 * blocks), round(block2 * blocks)
+    total1stack, total2stack = math.floor(total1/64), math.floor(total2/64)
+    total1stackleft, total2stackleft = total1-(total1stack*64), total2-(total2stack*64)
+    st.header(f"You need {total1} T3 {block1n} ({total1stack} stacks and {total1stackleft} blocks)")
+    st.header(f"You need {total2} T3 {block2n} ({total2stack} stacks and {total2stackleft} blocks)")
+elif mix != f"{two5} Mix":  
+    total1, total2 = round(block1 * blocks), round(block2 * blocks)
+    total1stack, total2stack = math.floor(total1/64), math.floor(total2/64)
+    total1stackleft, total2stackleft = total1-(total1stack*64), total2-(total2stack*64)
+    st.header(f"You need {total1} T3 {block1n} ({total1stack} stacks and {total1stackleft} blocks)")
+    st.header(f"You need {total2} T3 {block2n} ({total2stack} stacks and {total2stackleft} blocks)")
+elif mix != f"{three5} Mix":  
+    total1, total2 = round(block1 * blocks), round(block2 * blocks)
+    total1stack, total2stack = math.floor(total1/64), math.floor(total2/64)
+    total1stackleft, total2stackleft = total1-(total1stack*64), total2-(total2stack*64)
+    st.header(f"You need {total1} T3 {block1n} ({total1stack} stacks and {total1stackleft} blocks)")
+    st.header(f"You need {total2} T3 {block2n} ({total2stack} stacks and {total2stackleft} blocks)")
+elif mix != f"{four5} Mix":  
+    total1, total2 = round(block1 * blocks), round(block2 * blocks)
+    total1stack, total2stack = math.floor(total1/64), math.floor(total2/64)
+    total1stackleft, total2stackleft = total1-(total1stack*64), total2-(total2stack*64)
+    st.header(f"You need {total1} T3 {block1n} ({total1stack} stacks and {total1stackleft} blocks)")
+    st.header(f"You need {total2} T3 {block2n} ({total2stack} stacks and {total2stackleft} blocks)")
+elif mix != f"{five5} Mix":  
+    total1, total2 = round(block1 * blocks), round(block2 * blocks)
+    total1stack, total2stack = math.floor(total1/64), math.floor(total2/64)
+    total1stackleft, total2stackleft = total1-(total1stack*64), total2-(total2stack*64)
+    st.header(f"You need {total1} T3 {block1n} ({total1stack} stacks and {total1stackleft} blocks)")
+    st.header(f"You need {total2} T3 {block2n} ({total2stack} stacks and {total2stackleft} blocks)")
 else:
     pass
