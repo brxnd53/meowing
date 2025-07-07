@@ -183,8 +183,8 @@ if mix == f"{one5} Mix":
     mixpart1stack, mixpart2stack = math.floor(mixpart1/64), math.floor(mixpart2/64)
     mixpart1stackleft, mixpart2stackleft = mixpart1-(mixpart1stack*64), mixpart2-(mixpart2stack*64)
     if submixtoggle == True:
-        st.header(f"You need {mixpart1} {mixblock1n} - {mixblock2n} Mix ({mixpart1stack} and {mixpart1stackleft} blocks)")
-        st.header(f"You need {mixpart2} {mixblock2n} - {mixblock4n} Mix ({mixpart2stack} and {mixpart2stackleft} blocks)")
+        st.header(f"You need {mixpart1} {mixblock1n} - {mixblock2n} Mix ({mixpart1stack} stacks and {mixpart1stackleft} blocks)")
+        st.header(f"You need {mixpart2} {mixblock2n} - {mixblock4n} Mix ({mixpart2stack} stacks and {mixpart2stackleft} blocks)")
     else:
         st.header(f"You need {mixtotal1} T3 {mixblock1n} ({mixtotal1stack} stacks and {mixtotal1stackleft} blocks)")
         st.header(f"You need {mixtotalmid} T3 {mixblock2n} ({mixtotalmidstack} stacks and {mixtotalmidstackleft} blocks)")
@@ -199,8 +199,8 @@ elif mix == f"{two5} Mix":
     mixpart1stack, mixpart2stack = math.floor(mixpart1/64), math.floor(mixpart2/64)
     mixpart1stackleft, mixpart2stackleft = mixpart1-(mixpart1stack*64), mixpart2-(mixpart2stack*64)
     if submixtoggle == True:
-        st.header(f"You need {mixpart1} {mixblock1n} - {mixblock2n} Mix ({mixpart1stack} and {mixpart1stackleft} blocks)")
-        st.header(f"You need {mixpart2} {mixblock2n} - {mixblock4n} Mix ({mixpart2stack} and {mixpart2stackleft} blocks)")
+        st.header(f"You need {mixpart1} {mixblock1n} - {mixblock2n} Mix ({mixpart1stack} stacks and {mixpart1stackleft} blocks)")
+        st.header(f"You need {mixpart2} {mixblock2n} - {mixblock4n} Mix ({mixpart2stack} stacks and {mixpart2stackleft} blocks)")
     else:
         st.header(f"You need {mixtotal1} T3 {mixblock1n} ({mixtotal1stack} stacks and {mixtotal1stackleft} blocks)")
         st.header(f"You need {mixtotalmid} T3 {mixblock2n} ({mixtotalmidstack} stacks and {mixtotalmidstackleft} blocks)")
@@ -215,8 +215,8 @@ elif mix == f"{three5} Mix":
     mixpart1stack, mixpart2stack = math.floor(mixpart1/64), math.floor(mixpart2/64)
     mixpart1stackleft, mixpart2stackleft = mixpart1-(mixpart1stack*64), mixpart2-(mixpart2stack*64)
     if submixtoggle == True:
-        st.header(f"You need {mixpart1} {mixblock1n} - {mixblock2n} Mix ({mixpart1stack} and {mixpart1stackleft} blocks)")
-        st.header(f"You need {mixpart2} {mixblock2n} - {mixblock4n} Mix ({mixpart2stack} and {mixpart2stackleft} blocks)")
+        st.header(f"You need {mixpart1} {mixblock1n} - {mixblock2n} Mix ({mixpart1stack} stacks and {mixpart1stackleft} blocks)")
+        st.header(f"You need {mixpart2} {mixblock2n} - {mixblock4n} Mix ({mixpart2stack} stacks and {mixpart2stackleft} blocks)")
     else:
         st.header(f"You need {mixtotal1} T3 {mixblock1n} ({mixtotal1stack} stacks and {mixtotal1stackleft} blocks)")
         st.header(f"You need {mixtotalmid} T3 {mixblock2n} ({mixtotalmidstack} stacks and {mixtotalmidstackleft} blocks)")
@@ -231,8 +231,8 @@ elif mix == f"{four5} Mix":
     mixpart1stack, mixpart2stack = math.floor(mixpart1/64), math.floor(mixpart2/64)
     mixpart1stackleft, mixpart2stackleft = mixpart1-(mixpart1stack*64), mixpart2-(mixpart2stack*64)
     if submixtoggle == True:
-        st.header(f"You need {mixpart1} {mixblock1n} - {mixblock2n} Mix ({mixpart1stack} and {mixpart1stackleft} blocks)")
-        st.header(f"You need {mixpart2} {mixblock2n} - {mixblock4n} Mix ({mixpart2stack} and {mixpart2stackleft} blocks)")
+        st.header(f"You need {mixpart1} {mixblock1n} - {mixblock2n} Mix ({mixpart1stack} stacks and {mixpart1stackleft} blocks)")
+        st.header(f"You need {mixpart2} {mixblock2n} - {mixblock4n} Mix ({mixpart2stack} stacks and {mixpart2stackleft} blocks)")
     else:
         st.header(f"You need {mixtotal1} T3 {mixblock1n} ({mixtotal1stack} stacks and {mixtotal1stackleft} blocks)")
         st.header(f"You need {mixtotalmid} T3 {mixblock2n} ({mixtotalmidstack} stacks and {mixtotalmidstackleft} blocks)")
@@ -246,8 +246,8 @@ elif mix == f"{five5} Mix":
     mixpart1stack, mixpart2stack = math.floor(mixpart1/64), math.floor(mixpart2/64)
     mixpart1stackleft, mixpart2stackleft = mixpart1-(mixpart1stack*64), mixpart2-(mixpart2stack*64)
     if submixtoggle == True:
-        st.header(f"You need {mixpart1} {mixblock1n} - {mixblock2n} Mix ({mixpart1stack} and {mixpart1stackleft} blocks)")
-        st.header(f"You need {mixpart2} {mixblock2n} - {mixblock4n} Mix ({mixpart2stack} and {mixpart2stackleft} blocks)")
+        st.header(f"You need {mixpart1} {mixblock1n} - {mixblock2n} Mix ({mixpart1stack} stacks and {mixpart1stackleft} blocks)")
+        st.header(f"You need {mixpart2} {mixblock2n} - {mixblock4n} Mix ({mixpart2stack} stacks and {mixpart2stackleft} blocks)")
     else:
         st.header(f"You need {mixtotal1} T3 {mixblock1n} ({mixtotal1stack} stacks and {mixtotal1stackleft} blocks)")
         st.header(f"You need {mixtotalmid} T3 {mixblock2n} ({mixtotalmidstack} stacks and {mixtotalmidstackleft} blocks)")
